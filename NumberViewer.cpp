@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <string>
 #include <filesystem>
+#include <cassert>
 
 namespace filesystem = std::filesystem;
 
@@ -17,6 +18,22 @@ int main()
 
     std::ifstream trainImages(runningDirectroy / "train-images.idx3-ubyte");
     std::ifstream trainLables(runningDirectroy / "train-labels.idx1-ubyte");
+
+    int amount;
+    {
+        int n;
+        trainImages >> n;
+        assert(n == 2051);
+
+        trainLables >> n;
+        assert(n == 2049);
+
+        trainImages >> n;
+        trainLables >> n;
+        amount = n;
+
+        std::cout << "已打开训练集，共" << n << "个样本。" << std::endl;
+    }
 
 
 }
