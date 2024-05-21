@@ -35,5 +35,8 @@ int main()
         std::cout << "已打开训练集，共" << n << "个样本。" << std::endl;
     }
 
-
+    for (int i = 0; i < amount; i++)
+    {
+        trainImages >> 
+    }
 }
